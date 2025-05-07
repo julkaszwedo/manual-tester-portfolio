@@ -28,7 +28,7 @@
 			"response": []
 		},
 		{
-			"name": "get",
+			"name": "get users",
 			"request": {
 				"method": "GET",
 				"header": [],
