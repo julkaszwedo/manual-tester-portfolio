@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "f2869ba8-7280-4c1c-a51e-a2646e9ef4e3",
+		"name": "OpenweatherAPI.weather",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43830522",
+		"_collection_link": "https://juliaszwedo.postman.co/workspace/9cc9a7f6-2c2f-42ff-8452-de9674860090/collection/43830522-f2869ba8-7280-4c1c-a51e-a2646e9ef4e3?action=share&source=collection_link&creator=43830522"
+	},
+	"item": [
+		{
+			"name": "200 - success",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.openweathermap.org/data/2.5/weather?lat=50.041187&lon=21.999121&appid=6e57059fa9948b03904fd2c0dea53f5a",
+					"protocol": "https",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "50.041187"
+						},
+						{
+							"key": "lon",
+							"value": "21.999121"
+						},
+						{
+							"key": "appid",
+							"value": "6e57059fa9948b03904fd2c0dea53f5a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "400 - no lon",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.openweathermap.org/data/2.5/weather?lat=50.041187&lon=&appid=6e57059fa9948b03904fd2c0dea53f5a",
+					"protocol": "https",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "50.041187"
+						},
+						{
+							"key": "lon",
+							"value": ""
+						},
+						{
+							"key": "appid",
+							"value": "6e57059fa9948b03904fd2c0dea53f5a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "400 - invalid lat",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.openweathermap.org/data/2.5/weather?lat=10000000000000&lon=21.999121&appid=6e57059fa9948b03904fd2c0dea53f5a",
+					"protocol": "https",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "10000000000000"
+						},
+						{
+							"key": "lon",
+							"value": "21.999121"
+						},
+						{
+							"key": "appid",
+							"value": "6e57059fa9948b03904fd2c0dea53f5a"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
