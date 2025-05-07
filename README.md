@@ -46,7 +46,7 @@ Sample test plans for different types of projects.
 
 ## Contact
 - Email: julia.szwedo@o2.pl
-- LinkedIn: [Julia Szwedo](https://www.linkedin.com/in/your-name)
+- LinkedIn: [Julia Szwedo](https://www.linkedin.com/in/julia-szwedo-ab1087364/)
 - GitHub: [julkaszwedo](https://github.com/julkaszwedo)
 
 ---
