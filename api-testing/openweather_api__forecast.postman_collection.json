@@ -1,0 +1,35 @@
+{
+	"info": {
+		"_postman_id": "93c101c2-331e-49d9-80d2-218191a82833",
+		"name": "OpenweatherAPI2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43830522",
+		"_collection_link": "https://juliaszwedo.postman.co/workspace/Julia-Szwedo's-Workspace~9cc9a7f6-2c2f-42ff-8452-de9674860090/collection/43830522-93c101c2-331e-49d9-80d2-218191a82833?action=share&source=collection_link&creator=43830522"
+	},
+	"item": [
+		{
+			"name": "200 - success",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "401 - no api key",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "400 - invalid body",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
