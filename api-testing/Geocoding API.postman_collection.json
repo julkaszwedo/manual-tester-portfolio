@@ -1,0 +1,189 @@
+{
+	"info": {
+		"_postman_id": "ded6aede-9e61-4d9d-b1c7-1a5704e4cc96",
+		"name": "Geocoding API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43830522",
+		"_collection_link": "https://juliaszwedo.postman.co/workspace/Julia-Szwedo's-Workspace~9cc9a7f6-2c2f-42ff-8452-de9674860090/collection/43830522-ded6aede-9e61-4d9d-b1c7-1a5704e4cc96?action=share&source=collection_link&creator=43830522"
+	},
+	"item": [
+		{
+			"name": "401 - no api key",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 401\", function () {\r",
+							"    pm.expect(pm.response.code).to.equal(401);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Error message is 'Invalid API key. Please see https://openweathermap.org/faq#error401 for more info.'\", function() {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.message).to.equal(\"Invalid API key. Please see https://openweathermap.org/faq#error401 for more info.\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.openweathermap.org/geo/1.0/direct?q=&limit=&appid=",
+					"protocol": "http",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"geo",
+						"1.0",
+						"direct"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": ""
+						},
+						{
+							"key": "limit",
+							"value": ""
+						},
+						{
+							"key": "appid",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "200 - but no higher boundary of limit param",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"    pm.expect(pm.response.code).to.equal(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.openweathermap.org/geo/1.0/direct?q=Los Angeles&limit=70000&appid=6e57059fa9948b03904fd2c0dea53f5a",
+					"protocol": "http",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"geo",
+						"1.0",
+						"direct"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "Los Angeles"
+						},
+						{
+							"key": "limit",
+							"value": "70000"
+						},
+						{
+							"key": "appid",
+							"value": "6e57059fa9948b03904fd2c0dea53f5a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "401 - invalid api key",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 401\", function () {\r",
+							"    pm.expect(pm.response.code).to.equal(401);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Error message is 'Invalid API key. Please see https://openweathermap.org/faq#error401 for more info.'\", function() {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.message).to.equal(\"Invalid API key. Please see https://openweathermap.org/faq#error401 for more info.\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.openweathermap.org/geo/1.0/direct?q=Los Angeles&limit=5&appid=6e57059fa9948b03904fd2c0dea53f5b",
+					"protocol": "http",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"geo",
+						"1.0",
+						"direct"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "Los Angeles"
+						},
+						{
+							"key": "limit",
+							"value": "5"
+						},
+						{
+							"key": "appid",
+							"value": "6e57059fa9948b03904fd2c0dea53f5b"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
