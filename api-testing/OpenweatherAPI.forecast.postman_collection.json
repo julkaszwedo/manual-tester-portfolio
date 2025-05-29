@@ -1,0 +1,198 @@
+{
+	"info": {
+		"_postman_id": "93c101c2-331e-49d9-80d2-218191a82833",
+		"name": "OpenweatherAPI.forecast",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43830522",
+		"_collection_link": "https://juliaszwedo.postman.co/workspace/9cc9a7f6-2c2f-42ff-8452-de9674860090/collection/43830522-93c101c2-331e-49d9-80d2-218191a82833?action=share&source=collection_link&creator=43830522"
+	},
+	"item": [
+		{
+			"name": "200 - success",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"    pm.expect(pm.response.code).to.equal(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/forecast?lat=51.509865&lon=-0.118092&appid=6e57059fa9948b03904fd2c0dea53f5a",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"forecast"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "51.509865"
+						},
+						{
+							"key": "lon",
+							"value": "-0.118092"
+						},
+						{
+							"key": "appid",
+							"value": "6e57059fa9948b03904fd2c0dea53f5a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "401 - no api key",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 401\", function () {\r",
+							"    pm.expect(pm.response.code).to.equal(401);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Error message is 'Invalid API key. Please see https://openweathermap.org/faq#error401 for more info.'\", function() {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.message).to.equal(\"Invalid API key. Please see https://openweathermap.org/faq#error401 for more info.\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/forecast?lat=51.509865&lon=-0.118092&appid=",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"forecast"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "51.509865"
+						},
+						{
+							"key": "lon",
+							"value": "-0.118092"
+						},
+						{
+							"key": "appid",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "400 - invalid lon",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 400\", function () {\r",
+							"    pm.expect(pm.response.code).to.equal(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Error message is 'wrong longitude'\", function() {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.message).to.equal(\"wrong longitude\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/forecast?lat=51.509865&lon=hello&appid=6e57059fa9948b03904fd2c0dea53f5a",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"forecast"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "51.509865"
+						},
+						{
+							"key": "lon",
+							"value": "hello"
+						},
+						{
+							"key": "appid",
+							"value": "6e57059fa9948b03904fd2c0dea53f5a"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
